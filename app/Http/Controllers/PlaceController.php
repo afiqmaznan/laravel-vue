@@ -18,13 +18,13 @@ class PlaceController extends Controller
         $types = [
             Place::TYPE_OFFBEAT,
             Place::TYPE_LUXE,
+            Place::TYPE_OFFTHEGRID,
         ];
-        $places = Place::all();
-        return Inertia::render('Places/Index', ['places' => $places, 'types' => $types]);
+        return Inertia::render('Places/Index', ['types' => $types]);
     }
 
     public function filterByCategory($category){
-        $places = Place::all()->where('type', $category);
+        $places = Place::where('type', $category)->get();
         return ['places' => $places];
     }
 
