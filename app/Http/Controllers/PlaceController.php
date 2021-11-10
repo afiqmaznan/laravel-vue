@@ -15,8 +15,12 @@ class PlaceController extends Controller
      */
     public function index()
     {
+        $types = [
+            Place::TYPE_OFFBEAT,
+            Place::TYPE_LUXE,
+        ];
         $places = Place::all();
-        return Inertia::render('Places/Index', ['places' => $places]);
+        return Inertia::render('Places/Index', ['places' => $places, 'types' => $types]);
     }
 
     /**

@@ -1,13 +1,21 @@
 <template>
     <div class="container mx-auto p-4">
-        <ul class="flex mb-4">
+        <!-- <ul class="flex mb-4">
             <li class="mr-3">
                 <a class="inline-block border border-blue-500 rounded py-2 px-4 bg-blue-500 text-white" href="#">Offbeat</a>
             </li>
             <li class="mr-3">
                 <a class="inline-block border border-white rounded hover:border-gray-200 text-blue-500 hover:bg-gray-200 py-2 px-4" href="">Luxe</a>
             </li>
-        </ul>
+        </ul> -->
+        <nav class="flex flex-col sm:flex-row mb-4">
+            <button class="text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none text-blue-500 border-b-2 font-medium border-blue-500">
+                All
+            </button>
+            <button v-for="type in types" :key="type" @click="sendType(type)" class="text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none">
+                {{type}}
+            </button>
+        </nav>
   
         <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             <div v-for="place in places" :key="place.id" class="box-border md:box-content p-0">
@@ -35,6 +43,12 @@ export default {
     },
     props: {
         places: Object,
+        types: Object
     },
+    methods: {
+        sendType(type) {
+            
+        }
+    }
 };
 </script>
