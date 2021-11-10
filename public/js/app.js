@@ -20786,10 +20786,14 @@ __webpack_require__.r(__webpack_exports__);
       places: []
     };
   },
+  beforeMount: function beforeMount() {
+    this.sendType(this.types[0]);
+  },
   methods: {
     sendType: function sendType(type) {
       var _this = this;
 
+      this.active = type;
       axios.get('/places/filter/' + type).then(function (response) {
         console.log(response.data);
         console.log(type);
@@ -22213,7 +22217,7 @@ var _hoisted_10 = [_hoisted_9];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_tab = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("tab");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <ul class=\"flex mb-4\">\r\n            <li class=\"mr-3\">\r\n                <a class=\"inline-block border border-blue-500 rounded py-2 px-4 bg-blue-500 text-white\" href=\"#\">Offbeat</a>\r\n            </li>\r\n            <li class=\"mr-3\">\r\n                <a class=\"inline-block border border-white rounded hover:border-gray-200 text-blue-500 hover:bg-gray-200 py-2 px-4\" href=\"\">Luxe</a>\r\n            </li>\r\n        </ul> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <nav class=\"flex flex-col sm:flex-row mb-4\">\r\n            <button \r\n                v-for=\"(type,index) in types\" \r\n                :key=\"index\" \r\n                @click=\"sendType(type)\" \r\n                class=\"text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none\"\r\n                :selected=\"index == 0\"\r\n            >\r\n                {{type}}\r\n            </button>\r\n        </nav> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <v-tabs class=\"flex flex-col sm:flex-row mb-4\">\r\n            <v-tab class=\"text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none text-blue-500 border-b-2 font-medium border-blue-500\">Item One1</v-tab>\r\n            <v-tab class=\"text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none\">Item Two</v-tab>\r\n            <v-tab class=\"text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none\">Item Three</v-tab>\r\n        </v-tabs> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_2, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.types, function (type, index) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_2, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.types, function (type, index) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_tab, {
       key: index,
       name: type,
@@ -22221,7 +22225,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       onClick: function onClick($event) {
         return $options.sendType(type);
       },
-      "class": "no-underline border-b-2 border-transparent uppercase tracking-wide font-bold text-xs py-3 mr-8"
+      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none", {
+        'text-blue-500 border-b-2 font-medium border-blue-500': _ctx.active === type
+      }])
     }, {
       "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
         return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(type), 1
@@ -22233,7 +22239,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
     }, 1032
     /* PROPS, DYNAMIC_SLOTS */
-    , ["name", "selected", "onClick"]);
+    , ["name", "selected", "onClick", "class"]);
   }), 128
   /* KEYED_FRAGMENT */
   ))]), this.places.length > 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_3, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(this.places, function (place) {
