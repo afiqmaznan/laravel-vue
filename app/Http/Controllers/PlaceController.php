@@ -23,6 +23,11 @@ class PlaceController extends Controller
         return Inertia::render('Places/Index', ['places' => $places, 'types' => $types]);
     }
 
+    public function filterByCategory($category){
+        $places = Place::all()->where('type', $category);
+        return ['places' => $places];
+    }
+
     /**
      * Show the form for creating a new resource.
      *

@@ -9,16 +9,16 @@
             </li>
         </ul> -->
         <nav class="flex flex-col sm:flex-row mb-4">
-            <button class="text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none text-blue-500 border-b-2 font-medium border-blue-500">
+            <!-- <button @click="sendType()" class="text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none text-blue-500 border-b-2 font-medium border-blue-500">
                 All
-            </button>
+            </button> -->
             <button v-for="type in types" :key="type" @click="sendType(type)" class="text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none">
                 {{type}}
             </button>
         </nav>
   
         <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            <div v-for="place in places" :key="place.id" class="box-border md:box-content p-0">
+            <div v-for="place in this.places" :key="place.id" class="box-border md:box-content p-0">
                 <div>
                     <img :src="place.header" class="h-60 sm:h-60 border-2 w-full border-gray-300 rounded" />
                 </div>
@@ -42,12 +42,20 @@ export default {
         
     },
     props: {
-        places: Object,
         types: Object
+    },
+    data() {
+        return {
+            places: [],
+        }
     },
     methods: {
         sendType(type) {
-            
+            axios.get('/places/filter/'+type)
+                .then(response => {
+                    console.log(response.data.places);
+                    this.places = response.data.places;
+                });
         }
     }
 };

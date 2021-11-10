@@ -30,5 +30,6 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::resource('places', PlaceController::class);
+Route::get('places/filter/{category}', [PlaceController::class, 'filterByCategory']);
 
 require __DIR__.'/auth.php';

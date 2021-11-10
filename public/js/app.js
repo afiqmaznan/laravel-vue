@@ -20779,11 +20779,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {},
   props: {
-    places: Object,
     types: Object
   },
+  data: function data() {
+    return {
+      places: []
+    };
+  },
   methods: {
-    sendType: function sendType(type) {}
+    sendType: function sendType(type) {
+      var _this = this;
+
+      axios.get('/places/filter/' + type).then(function (response) {
+        console.log(response.data.places);
+        _this.places = response.data.places;
+      });
+    }
   }
 });
 
@@ -22170,29 +22181,22 @@ var _hoisted_1 = {
 var _hoisted_2 = {
   "class": "flex flex-col sm:flex-row mb-4"
 };
-
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-  "class": "text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none text-blue-500 border-b-2 font-medium border-blue-500"
-}, " All ", -1
-/* HOISTED */
-);
-
-var _hoisted_4 = ["onClick"];
-var _hoisted_5 = {
+var _hoisted_3 = ["onClick"];
+var _hoisted_4 = {
   "class": "grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
 };
-var _hoisted_6 = ["src"];
-var _hoisted_7 = {
+var _hoisted_5 = ["src"];
+var _hoisted_6 = {
   "class": "grid grid-cols-2"
 };
-var _hoisted_8 = {
+var _hoisted_7 = {
   "class": "text-sm font-bold md:text-lg"
 };
-var _hoisted_9 = {
+var _hoisted_8 = {
   "class": "text-sm text-right font md:text-lg"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <ul class=\"flex mb-4\">\r\n            <li class=\"mr-3\">\r\n                <a class=\"inline-block border border-blue-500 rounded py-2 px-4 bg-blue-500 text-white\" href=\"#\">Offbeat</a>\r\n            </li>\r\n            <li class=\"mr-3\">\r\n                <a class=\"inline-block border border-white rounded hover:border-gray-200 text-blue-500 hover:bg-gray-200 py-2 px-4\" href=\"\">Luxe</a>\r\n            </li>\r\n        </ul> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_2, [_hoisted_3, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.types, function (type) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <ul class=\"flex mb-4\">\r\n            <li class=\"mr-3\">\r\n                <a class=\"inline-block border border-blue-500 rounded py-2 px-4 bg-blue-500 text-white\" href=\"#\">Offbeat</a>\r\n            </li>\r\n            <li class=\"mr-3\">\r\n                <a class=\"inline-block border border-white rounded hover:border-gray-200 text-blue-500 hover:bg-gray-200 py-2 px-4\" href=\"\">Luxe</a>\r\n            </li>\r\n        </ul> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button @click=\"sendType()\" class=\"text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none text-blue-500 border-b-2 font-medium border-blue-500\">\r\n                All\r\n            </button> "), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.types, function (type) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", {
       key: type,
       onClick: function onClick($event) {
@@ -22201,10 +22205,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       "class": "text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none"
     }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(type), 9
     /* TEXT, PROPS */
-    , _hoisted_4);
+    , _hoisted_3);
   }), 128
   /* KEYED_FRAGMENT */
-  ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.places, function (place) {
+  ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(this.places, function (place) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
       key: place.id,
       "class": "box-border md:box-content p-0"
@@ -22213,9 +22217,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       "class": "h-60 sm:h-60 border-2 w-full border-gray-300 rounded"
     }, null, 8
     /* PROPS */
-    , _hoisted_6)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(place.city) + ", " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(place.country), 1
+    , _hoisted_5)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(place.city) + ", " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(place.country), 1
     /* TEXT */
-    )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(place.price), 1
+    )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(place.price), 1
     /* TEXT */
     )])])]);
   }), 128
