@@ -1,5 +1,16 @@
 <template>
     <div class="container mx-auto p-4">
+        <div class="h-full w-full p-2">
+            <div class="grid grid-cols-1">
+                <div class="box-border md:box-content p-0">
+                    <div class="text-sm text-center font-bold md:text-xl">
+                        <p>AirBnb</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr/>
+        
         <nav class="flex flex-col sm:flex-row mb-4">
             <tab 
                 v-for="(type, index) in types" 
