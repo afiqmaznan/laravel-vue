@@ -22225,7 +22225,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       onClick: function onClick($event) {
         return $options.sendType(type);
       },
-      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none", {
+      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["cursor-pointer text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none", {
         'text-blue-500 border-b-2 font-medium border-blue-500': _ctx.active === type
       }])
     }, {

@@ -7,7 +7,7 @@
                 :name="type" 
                 :selected="index==0"
                 @click="sendType(type)"
-                class="text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none"
+                class="cursor-pointer text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none"
                 :class="{'text-blue-500 border-b-2 font-medium border-blue-500': active === type}"
             >
                 <h1>{{type}}</h1>
