@@ -12,7 +12,7 @@
         <hr/>
         
         <nav class="flex flex-col sm:flex-row mb-4">
-            <tab 
+            <button 
                 v-for="(type, index) in types" 
                 :key="index" 
                 :name="type" 
@@ -22,7 +22,7 @@
                 :class="{'text-blue-500 border-b-2 font-medium border-blue-500': active === type}"
             >
                 <h1>{{type}}</h1>
-            </tab>
+            </button>
         </nav>
   
         <div v-if="this.places.length > 0" class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -50,6 +50,7 @@
 </template>
 
 <script>
+import NProgress from 'nprogress';
 export default {
     components: {
         
@@ -67,14 +68,17 @@ export default {
     },
     methods: {
         sendType(type) {
+            NProgress.start();
             this.active = type;
             axios.get('/places/filter/'+type)
                 .then(response => {
                     console.log(response.data);
                     console.log(type);
                     this.places = response.data.places;
+                    NProgress.done();
                 }).catch(err=>{
                     console.log(err);
+                    NProgress.done();
                 });
         }
     }
