@@ -18,7 +18,7 @@ class CreatePlacesTable extends Migration
             $table->text('name')->nullable();
             $table->double('price')->nullable();
             $table->text('type')->nullable();
-            $table->text('header')->nullable();
+            $table->text('images')->nullable();
             $table->text('city')->nullable();
             $table->text('country')->nullable();
             $table->text('description')->nullable();

@@ -14,4 +14,8 @@ class Place extends Model
     public function getPriceAttribute($price){
         return "RM " . number_format($price,0,".",",") . "/night";
     }
+
+    public function getImagesAttribute($images){
+        return json_decode($images, true) ?? [];
+    }
 }

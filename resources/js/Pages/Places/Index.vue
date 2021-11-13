@@ -3,8 +3,8 @@
         <div class="h-full w-full p-2">
             <div class="grid grid-cols-1">
                 <div class="box-border md:box-content p-0">
-                    <div class="text-sm text-center font-bold md:text-xl">
-                        <p>AirBnb</p>
+                    <div class="text-2xl text-center text-blue-500 font-bold md:text-xl">
+                        <p>AIRBNB</p>
                     </div>
                 </div>
             </div>
@@ -28,7 +28,12 @@
         <div v-if="this.places.length > 0" class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             <div v-for="place in this.places" :key="place.id" class="box-border md:box-content p-0">
                 <div>
-                    <img :src="place.header" class="h-60 sm:h-60 border-2 w-full border-gray-300 rounded" />
+                    <!-- <img :src="place.header" class="h-60 sm:h-60 border-2 w-full border-gray-300 rounded" /> -->
+                    <splide :options="options">
+                        <splide-slide v-for="image in place.images" :key="image.index">
+                            <img :src="image" class="h-80 md:h-60 border-2 w-full border-gray-300 rounded" />
+                        </splide-slide>
+                    </splide>
                 </div>
                 
                 <div class="grid grid-cols-2">
@@ -51,9 +56,12 @@
 
 <script>
 import NProgress from 'nprogress';
+import { Splide, SplideSlide } from '@splidejs/vue-splide';
+import '@splidejs/splide/dist/css/themes/splide-default.min.css';
 export default {
     components: {
-        
+        Splide,
+        SplideSlide,
     },
     props: {
         types: Object
@@ -61,6 +69,9 @@ export default {
     data() {
         return {
             places: [],
+            options: {
+                rewind : true,
+            },
         }
     },
     beforeMount(){
@@ -72,8 +83,8 @@ export default {
             this.active = type;
             axios.get('/places/filter/'+type)
                 .then(response => {
-                    console.log(response.data);
-                    console.log(type);
+                    //console.log(response.data);
+                    //console.log(type);
                     this.places = response.data.places;
                     NProgress.done();
                 }).catch(err=>{
