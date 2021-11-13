@@ -1,13 +1,9 @@
 <template>
     <div class="container mx-auto p-4">
-        <div class="h-full w-full p-2">
-            <div class="grid grid-cols-1">
-                <div class="box-border md:box-content p-0">
-                    <div class="text-2xl text-center text-blue-500 font-bold md:text-xl">
-                        <p>AIRBNB</p>
-                    </div>
-                </div>
-            </div>
+        <div class="grid grid-cols-1 p-0 mb-4">
+            <Link href="/" class="text-2xl text-center text-blue-500 font-bold md:text-xl">
+                <p>AIRBNB</p>
+            </Link>
         </div>
         <hr/>
         
@@ -58,10 +54,12 @@
 import NProgress from 'nprogress';
 import { Splide, SplideSlide } from '@splidejs/vue-splide';
 import '@splidejs/splide/dist/css/themes/splide-default.min.css';
+import { Link } from '@inertiajs/inertia-vue3';
 export default {
     components: {
         Splide,
         SplideSlide,
+        Link
     },
     props: {
         types: Object
