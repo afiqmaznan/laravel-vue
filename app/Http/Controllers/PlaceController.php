@@ -19,6 +19,11 @@ class PlaceController extends Controller
             Place::TYPE_OFFBEAT,
             Place::TYPE_LUXE,
             Place::TYPE_OFFTHEGRID,
+            Place::TYPE_POOLS,
+            Place::TYPE_BEACH,
+            Place::TYPE_CABINS,
+            Place::TYPE_TINYHOMES,
+            Place::TYPE_FARMS
         ];
         return Inertia::render('Places/Index', ['types' => $types]);
     }

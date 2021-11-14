@@ -1,7 +1,7 @@
 <template>
     <Header>
     </Header>
-    <div class="container mx-auto">
+    <div class="container mx-auto p-2 md:p-0">
         <!-- <div class="grid grid-cols-1 p-0 mb-4">
             <Link href="/" class="text-2xl text-center text-blue-500 font-bold md:text-xl">
                 <p>AIRBNB</p>
@@ -9,16 +9,16 @@
         </div> -->     
         <!-- <hr/> -->
         
-        <nav class="flex flex-col sm:flex-row mb-4">
+        <nav class="flex flex-row mb-2 mt-0 md:mb-4 md:mt-4 overflow-x-auto no-scrollbar">
             <button 
                 v-for="(type, index) in types" 
                 :key="index"
                 @click="sendType(type)"
-                class="cursor-pointer text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none"
+                class="flex-none cursor-pointer text-gray-600 py-1 px-3 md:py-3 md:px-6 hover:text-blue-500 focus:outline-none"
                 :class="{'text-blue-500 border-b-2 font-medium border-blue-500': active === type}"
                 :disabled="active === type"
             >
-                <h1>{{type}}</h1>
+                {{type}}
             </button>
         </nav>
   
@@ -28,7 +28,7 @@
                     <!-- <img :src="place.header" class="h-60 sm:h-60 border-2 w-full border-gray-300 rounded" /> -->
                     <splide :options="options">
                         <splide-slide v-for="image in place.images" :key="image.index">
-                            <img :src="image" class="h-80 md:h-60 border-2 w-full border-gray-300 rounded" />
+                            <img :src="image" class="h-76 md:h-60 border-2 w-full border-gray-300 rounded" />
                         </splide-slide>
                     </splide>
                 </div>
@@ -50,6 +50,17 @@
         </div>
     </div>
 </template>
+<style scoped>
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+</style>
 
 <script>
 import NProgress from 'nprogress';
