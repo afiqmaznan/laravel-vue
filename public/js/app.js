@@ -24808,12 +24808,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "container mx-auto p-4"
+  "class": "container mx-auto"
 };
 var _hoisted_2 = {
   "class": "flex flex-col sm:flex-row mb-4"
 };
-var _hoisted_3 = ["name", "selected", "onClick"];
+var _hoisted_3 = ["onClick", "disabled"];
 var _hoisted_4 = {
   key: 0,
   "class": "grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
@@ -24850,14 +24850,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Header), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"grid grid-cols-1 p-0 mb-4\">\r\n            <Link href=\"/\" class=\"text-2xl text-center text-blue-500 font-bold md:text-xl\">\r\n                <p>AIRBNB</p>\r\n            </Link>\r\n        </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <hr/> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_2, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.types, function (type, index) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", {
       key: index,
-      name: type,
-      selected: index == 0,
       onClick: function onClick($event) {
         return $options.sendType(type);
       },
       "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["cursor-pointer text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none", {
         'text-blue-500 border-b-2 font-medium border-blue-500': _ctx.active === type
-      }])
+      }]),
+      disabled: _ctx.active === type
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(type), 1
     /* TEXT */
     )], 10

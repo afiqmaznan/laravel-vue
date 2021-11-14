@@ -1,7 +1,7 @@
 <template>
     <Header>
     </Header>
-    <div class="container mx-auto p-4">
+    <div class="container mx-auto">
         <!-- <div class="grid grid-cols-1 p-0 mb-4">
             <Link href="/" class="text-2xl text-center text-blue-500 font-bold md:text-xl">
                 <p>AIRBNB</p>
@@ -12,12 +12,11 @@
         <nav class="flex flex-col sm:flex-row mb-4">
             <button 
                 v-for="(type, index) in types" 
-                :key="index" 
-                :name="type" 
-                :selected="index==0"
+                :key="index"
                 @click="sendType(type)"
                 class="cursor-pointer text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none"
                 :class="{'text-blue-500 border-b-2 font-medium border-blue-500': active === type}"
+                :disabled="active === type"
             >
                 <h1>{{type}}</h1>
             </button>
