@@ -1,11 +1,13 @@
 <template>
+    <Header>
+    </Header>
     <div class="container mx-auto p-4">
-        <div class="grid grid-cols-1 p-0 mb-4">
+        <!-- <div class="grid grid-cols-1 p-0 mb-4">
             <Link href="/" class="text-2xl text-center text-blue-500 font-bold md:text-xl">
                 <p>AIRBNB</p>
             </Link>
-        </div>
-        <hr/>
+        </div> -->     
+        <!-- <hr/> -->
         
         <nav class="flex flex-col sm:flex-row mb-4">
             <button 
@@ -55,11 +57,13 @@ import NProgress from 'nprogress';
 import { Splide, SplideSlide } from '@splidejs/vue-splide';
 import '@splidejs/splide/dist/css/themes/splide-default.min.css';
 import { Link } from '@inertiajs/inertia-vue3';
+import Header from '@/Layouts/Header.vue';
 export default {
     components: {
         Splide,
         SplideSlide,
-        Link
+        Link,
+        Header
     },
     props: {
         types: Object
