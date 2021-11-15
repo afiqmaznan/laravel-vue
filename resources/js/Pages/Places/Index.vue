@@ -1,4 +1,6 @@
 <template>
+    <Head title="Airbnb" />
+    
     <Header>
     </Header>
     <div class="container mx-auto p-2 md:p-0">
@@ -66,14 +68,15 @@
 import NProgress from 'nprogress';
 import { Splide, SplideSlide } from '@splidejs/vue-splide';
 import '@splidejs/splide/dist/css/themes/splide-default.min.css';
-import { Link } from '@inertiajs/inertia-vue3';
+import { Link, Head } from '@inertiajs/inertia-vue3';
 import Header from '@/Layouts/Header.vue';
 export default {
     components: {
         Splide,
         SplideSlide,
         Link,
-        Header
+        Header,
+        Head
     },
     props: {
         types: Object
